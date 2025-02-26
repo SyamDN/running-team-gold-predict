@@ -5,11 +5,7 @@
     <h1 class="text-gray-900 text-xl md:text-4xl font-bold">
       Perencanaan Cerdas untuk Masa Depan
       <br />
-<<<<<<< HEAD
-      <span class="font-bold text-yellow-500 text-xl md:text-4xl">Emas</span>
-=======
       <span class="font-bold text-[#ECB55F] text-xl md:text-4xl">Emas</span>
->>>>>>> hero
       yang <span class="font-bold">Terencana</span>
     </h1>
     <p class="mt-4 text-gray-700 text-base max-w-5xl mx-auto leading-relaxed md:text-lg">
@@ -21,17 +17,6 @@
   </div>
 
   <div class="flex justify-center mt-4">
-<<<<<<< HEAD
-    <button
-      class="bg-yellow-600 text-white text-sm sm:text-l py-3 px-7 sm:px-2 rounded-lg flex items-center gap-2 hover:bg-teal-700 transition"
-    >
-      Lihat Keuntungan Anda Sekarang
-    </button>
-  </div>
-
-  <div class="flex justify-center mt-8">
-    <img src="/grafikstatis.png" alt="Grafik Statis" class="object-cover w-1/2" />
-=======
     <RouterLink to="/simulasi">
       <button
         class="bg-[#ECB55F] text-white text-sm sm:text-l py-3 px-7 sm:px-4 rounded-lg flex items-center gap-2 hover:bg-white transition outline-1 outline-[#ECB55F] hover:text-[#ECB55F] hover:bg-white font-poppins font-medium"
@@ -43,6 +28,5 @@
 
   <div class="flex justify-center mt-8">
     <img src="../assets/grafik-statis.png" alt="Grafik Statis" class="object-cover w-1/2" />
->>>>>>> hero
   </div>
 </template>

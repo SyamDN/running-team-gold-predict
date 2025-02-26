@@ -1,6 +1,6 @@
 <script setup>
 import AppNavbar from '@/components/AppNavbar.vue'
-import FooterApp from '@/components/FooterApp.vue'
+import FooterApp from '@/components/Footer.vue'
 
 import { ref } from 'vue'
 
@@ -8,6 +8,12 @@ const selectedButton = ref(null)
 
 const selectButton = (value) => {
   selectedButton.value = value
+}
+
+const selectedButtons = ref(null)
+
+const selectButtons = (value) => {
+  selectedButtons.value = value
 }
 </script>
 
@@ -94,9 +100,9 @@ const selectButton = (value) => {
         <button
           v-for="(label, index) in ['6 Hari', '12 Hari', '18 Hari', '24 Hari']"
           :key="index"
-          @click="selectButton(label)"
+          @click="selectButtons(label)"
           :class="
-            selectedButton === label ? 'bg-[#4AA49C] text-white' : 'bg-gray-100 text-gray-700'
+            selectedButtons === label ? 'bg-[#4AA49C] text-white' : 'bg-gray-100 text-gray-700'
           "
           class="px-4 py-2 border rounded-[36px] flex-1 outline-[#4AA49C] outline-1 hover:text-[#4AA49C] hover:bg-white"
         >
