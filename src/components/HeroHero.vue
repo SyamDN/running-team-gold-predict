@@ -25,10 +25,6 @@
   </div>
 
   <div class="flex justify-center mt-8">
-    <img
-      src="C:\Belajar\candi\public\grafikstatis.png"
-      alt="Grafik Statis"
-      class="object-cover w-1/2"
-    />
+    <img src="/grafikstatis.png" alt="Grafik Statis" class="object-cover w-1/2" />
   </div>
 </template>
