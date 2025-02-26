@@ -9,7 +9,7 @@ import Footer from '../components/Footer.vue'
 
 const articles = ref([])
 const produkSection = ref(null)
-const artikelSection = ref(null) // Reference to Artikel section
+const artikelSection = ref(null) // Reference to Artikel section
 
 const getArticles = async () => {
   try {

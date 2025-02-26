@@ -1,6 +1,7 @@
 <script setup>
-import AppNavbar from '@/components/AppNavbar.vue'
+import AppNavbar from '@/components/Navbar.vue'
 import FooterApp from '@/components/Footer.vue'
+import GoldPriceChart from '@/components/GoldPriceChart.vue'
 
 import { ref } from 'vue'
 
@@ -68,8 +69,8 @@ const selectButtons = (value) => {
         </div>
 
         <!-- Chart -->
-        <div class="mt-4">
-          <img src="../assets/BarLineChart.png" alt="Grafik Harga Emas" class="w-full" />
+        <div class="chart-container mt-4">
+          <GoldPriceChart />
         </div>
       </div>
 
@@ -151,3 +152,10 @@ const selectButtons = (value) => {
   </div>
   <FooterApp />
 </template>
+
+<style scoped>
+.chart-container {
+  width: 100%;
+  height: 300px;
+}
+</style>

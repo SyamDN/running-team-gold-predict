@@ -170,15 +170,6 @@ const closeModal = () => {
               </li>
             </ul>
           </li>
-          <li>
-            <strong>Informasi Kontak</strong>
-            <ul class="list-disc pl-5">
-              <li>
-                Jika Anda memiliki pertanyaan mengenai Syarat dan Ketentuan ini, silahkan hubungi
-                kami melalui saluran yang tersedia di situs web kami.
-              </li>
-            </ul>
-          </li>
         </ol>
       </div>
     </div>
