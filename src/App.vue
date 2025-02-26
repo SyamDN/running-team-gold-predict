@@ -1,6 +1,6 @@
 <script setup>
-import Footer from './components/Footer.vue'
-import Home from './views/Home.vue';
+// import Footer from './components/FooterApp.vue'
+// import Home from './views/HomePage.vue';
 </script>
 
 <template>

@@ -18,16 +18,30 @@
           </p>
 
           <!-- Link Info Selengkapnya -->
+<<<<<<< HEAD
           <RouterLink
             to="/artikel"
             class="text-green-700 font-semibold inline-block mt-10 hover:underline text-sm"
           >
             Info Selengkapnya →
           </RouterLink>
+=======
+          <a
+            href="https://www.bankbsi.co.id/produk&layanan/produk/bsi-cicil-emas"
+            target="_blank"
+            class="text-[#4AA49C] font-semibold inline-block mt-10 hover:underline text-sm"
+          >
+            Info Selengkapnya →
+          </a>
+>>>>>>> hero
         </div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> hero
   <div class="container mx-auto px-6">
     <div class="flex items-center gap-6">
       <!-- Kartu Artikel -->
@@ -47,17 +61,32 @@
           </p>
 
           <!-- Link Info Selengkapnya -->
+<<<<<<< HEAD
           <RouterLink
             to="/artikel"
             class="text-green-700 font-semibold inline-block mt-10 hover:underline text-sm"
           >
             Info Selengkapnya →
           </RouterLink>
+=======
+          <a
+            href="https://www.bankbsi.co.id/produk&layanan/produk/bsi-gadai-emas"
+            target="_blank"
+            class="text-[#4AA49C] font-semibold inline-block mt-10 hover:underline text-sm"
+          >
+            Info Selengkapnya →
+          </a>
+>>>>>>> hero
         </div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
   <div class="container mx-auto px-6">
+=======
+
+  <div class="container mx-auto px-6 w">
+>>>>>>> hero
     <div class="flex items-center gap-6">
       <!-- Kartu Artikel -->
       <div
@@ -76,12 +105,22 @@
           </p>
 
           <!-- Link Info Selengkapnya -->
+<<<<<<< HEAD
           <RouterLink
             to="/artikel"
             class="text-green-700 font-semibold inline-block mt-10 hover:underline text-sm"
           >
             Info Selengkapnya →
           </RouterLink>
+=======
+          <a
+            href="https://www.bankbsi.co.id/promo/tabungan-e-mas-bsi-mobile"
+            target="_blank"
+            class="text-[#4AA49C] font-semibold inline-block mt-10 hover:underline text-sm"
+          >
+            Info Selengkapnya →
+          </a>
+>>>>>>> hero
         </div>
       </div>
     </div>

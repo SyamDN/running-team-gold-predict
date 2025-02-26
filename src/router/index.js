@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home.vue';
 import ArtikelEmas from "@/views/ArtikelEmas.vue";
-import Simulasi from "@/views/Simulasi.vue";
+import SimulasiPrediksi from "@/views/SimulasiPrediksi.vue";
 
 const routes = [
     {
@@ -12,9 +12,8 @@ const routes = [
         path: '/artikel', component: ArtikelEmas
     },
     {
-        path: '/simulasi', component: Simulasi
+        path: '/simulasi', component: SimulasiPrediksi
     }
-
 ];
 
 const router = createRouter({
