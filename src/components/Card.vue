@@ -30,7 +30,7 @@ defineProps({
 
           <!-- Link Info Selengkapnya -->
           <RouterLink
-            to="/article"
+            to="/artikel"
             class="text-yellow-100 font-semibold inline-block mt-10 text-sm hover:underline"
           >
             Info Selengkapnya →
