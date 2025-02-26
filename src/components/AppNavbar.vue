@@ -1,26 +1,34 @@
-<script setup name="AppNavbar">
-import { ref } from "vue";
+<script setup>
+import { ref } from 'vue'
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 const toggleMenu = () => {
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
+
+const emit = defineEmits(['scrollToProduk'])
+
 </script>
 
 <template>
   <nav class="fixed top-0 left-0 w-full bg-white border border-gray-200 p-4 z-50">
     <div class="flex justify-between items-center max-w-7xl mx-auto px-8">
       <!-- Logo -->
-      <router-link to="/" class="text-green-600 text-lg font-bold flex items-center">
+      <router-link to="/" class="text-green-600 text-lg font-bold flex items-center pl-0 sm:pl-30">
         <img src="/logo.png" alt="Logo" class="w-24 h-8" />
       </router-link>
 
       <!-- Desktop Navigation -->
-      <div class="hidden sm:flex items-center gap-8">
-        <router-link to="/" class="text-black hover:text-teal-600">Home</router-link>
-        <router-link to="/produk" class="text-black hover:text-teal-600">Produk Emas</router-link>
-        <router-link to="/artikel" class="text-black hover:text-teal-600">Artikel</router-link>
-        <router-link to="/simulasiprediksi" class="text-white hover:text-teal-600 bg-teal-600  hover:bg-white outline-1 outline outline-teal-600 px-4 py-2 rounded-md">
+      <div class="hidden sm:flex items-center gap-8 pr-30">
+        <router-link to="/" class="text-black hover:text-green-600">Home</router-link>
+        <button @click="emit('scrollToProduk')" class="text-black hover:text-green-600">
+          Produk Emas
+        </button>
+        <router-link to="/artikel" class="text-black hover:text-green-600">Artikel</router-link>
+        <router-link
+          to="/simulasi"
+          class="text-white hover:text-[#005850] bg-[#4AA49C] hover:bg-white outline-1 outline outline-[#4AA49C] px-4 py-2 rounded-md"
+        >
           Simulasi Prediksi
         </router-link>
       </div>
@@ -44,12 +52,12 @@ const toggleMenu = () => {
       <router-link to="/" class="text-black hover:text-green-600">Home</router-link>
       <router-link to="/produk" class="text-black hover:text-green-600">Produk Emas</router-link>
       <router-link to="/artikel" class="text-black hover:text-green-600">Artikel</router-link>
-      <router-link to="/simulasiprediksi" class="text-black hover:text-green-600">Simulasi Prediksi</router-link>
+      <router-link to="/simulasi" class="text-black hover:text-green-600"
+        >Simulasi Prediksi</router-link
+      >
     </div>
   </nav>
 
   <!-- Spacer untuk mencegah konten tertutup navbar -->
   <div class="h-16"></div>
 </template>
-
-
