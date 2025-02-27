@@ -61,7 +61,7 @@ const selectButtons = (value) => {
               :class="
                 selectedButton === label ? 'bg-[#ECB55F] text-white' : 'bg-gray-100 text-gray-700'
               "
-              class="px-2 py-1 border rounded-[8px] hover:bg-[#ECB55F] hover:text-white"
+              class="px-2 py-1 border rounded-[8px]" // update: hapus style hover
             >
               {{ label }}
             </button>
@@ -105,7 +105,7 @@ const selectButtons = (value) => {
           :class="
             selectedButtons === label ? 'bg-[#4AA49C] text-white' : 'bg-gray-100 text-gray-700'
           "
-          class="px-4 py-2 border rounded-[36px] flex-1 outline-[#4AA49C] outline-1 hover:text-[#4AA49C] hover:bg-white"
+          class="px-4 py-2 border rounded-[36px] flex-1 outline-[#4AA49C] outline-1" // update: hapus style hover
         >
           {{ label }}
         </button>
