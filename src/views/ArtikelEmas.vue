@@ -8,11 +8,13 @@ const articlesDetails = ref(null) // Variabel reaktif untuk menyimpan detail art
 const router = useRouter() // Mendapatkan instance router
 const route = useRoute() // Mendapatkan instance route
 
+const BACKEND_URL = import.meta.env.VITE_API_URL;
+  
 // Fungsi untuk mengambil detail artikel berdasarkan ID
 const getArticlesDetails = async () => {
   try {
     const id = route.params.id // Mengambil ID dari parameter route
-    const response = await axios.get(`http://localhost:5000/articles/${id}`) // Mengirim request ke API
+    const response = await axios.get(`${BACKEND_URL}/articles/${id}`) // Mengirim request ke API
     articlesDetails.value = response.data // Menyimpan data artikel ke variabel reaktif
     console.log('Data Articles:', articlesDetails.value)
   } catch (error) {
