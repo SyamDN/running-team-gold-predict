@@ -27,11 +27,13 @@ const goldPrices = ref([])
 // Menyimpan data prediksi harga emas berdasarkan hari
 const predictionByDay = ref({})
 
+const BACKEND_URL = import.meta.env.VITE_API_URL
+
 // Mengambil data prediksi harga emas dari API saat komponen dimuat
 onMounted(async () => {
   try {
     // Mengambil data prediksi harga emas untuk grafik
-    const predictionResponse = await fetch('http://127.0.0.1:5000/prediction')
+    const predictionResponse = await fetch(`${BACKEND_URL}/prediction`)
     const predictionData = await predictionResponse.json()
 
     // Menyimpan data prediksi jika tersedia
@@ -47,7 +49,7 @@ onMounted(async () => {
     }
 
     // Mengambil data prediksi harga emas berdasarkan hari
-    const pricesResponse = await fetch('http://127.0.0.1:5000/prices')
+    const pricesResponse = await fetch(`${BACKEND_URL}/prices`)
     const pricesData = await pricesResponse.json()
 
     // Menyimpan data prediksi berdasarkan hari jika tersedia
@@ -122,7 +124,13 @@ const estimatedDifference = computed(() => {
       @click="$router.push('/')"
       class="flex items-center text-gray-700 text-sm font-medium font-poppins bg-white transition-colors duration-300 px-0 sm:4 md:4 lg:0 py-1"
     >
-      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <svg
+        class="w-5 h-5 mr-2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
       </svg>
       Kembali
@@ -148,7 +156,9 @@ const estimatedDifference = computed(() => {
               v-for="(label, index) in ['1Y', '6M', '3M', '1M']"
               :key="index"
               @click="selectedButton = label"
-              :class="selectedButton === label ? 'bg-[#ECB55F] text-white' : 'bg-gray-100 text-gray-700'"
+              :class="
+                selectedButton === label ? 'bg-[#ECB55F] text-white' : 'bg-gray-100 text-gray-700'
+              "
               class="px-2 py-1 border rounded-lg hover:bg-[#ECB55F] hover:text-white"
             >
               {{ label }}
@@ -156,22 +166,32 @@ const estimatedDifference = computed(() => {
           </div>
         </div>
         <div class="chart-container flex-grow mt-4">
-          <GoldPriceChart :selectedDuration="selectedButton"/>
+          <GoldPriceChart :selectedDuration="selectedButton" />
         </div>
       </div>
 
       <!-- Informasi Harga Emas -->
-      <div class="md:col-span-3 bg-white shadow-md rounded-lg p-5 border flex flex-col justify-between">
+      <div
+        class="md:col-span-3 bg-white shadow-md rounded-lg p-5 border flex flex-col justify-between"
+      >
         <h2 class="text-lg font-semibold text-yellow-600 font-poppins mb-0.5">Informasi Emas</h2>
         <div class="border-t w-full my-2"></div>
         <div class="flex flex-col space-y-2 flex-grow">
           <div>
             <p class="text-gray-500">Harga Terkini</p>
-            <p class="text-xl font-bold">{{ latestData ? formatCurrency(latestData.price) : 'Memuat...' }}</p>
+            <p class="text-xl font-bold">
+              {{ latestData ? formatCurrency(latestData.price) : 'Memuat...' }}
+            </p>
           </div>
           <div>
             <p class="text-gray-500">Perubahan</p>
-            <p :class="isPositive ? 'text-green-600 font-semibold text-lg' : 'text-red-600 text-lg font-semibold'">
+            <p
+              :class="
+                isPositive
+                  ? 'text-green-600 font-semibold text-lg'
+                  : 'text-red-600 text-lg font-semibold'
+              "
+            >
               {{ isPositive ? '▲' : '▼' }} {{ formatCurrency(priceDifference) }}
             </p>
           </div>
@@ -180,7 +200,7 @@ const estimatedDifference = computed(() => {
     </div>
   </div>
 
-    <!-- Prediction per hari Box -->
+  <!-- Prediction per hari Box -->
   <div class="max-w-5xl mx-auto p-4 sm:p-6 font-poppins">
     <div class="bg-white shadow-md rounded-lg p-4 sm:p-6 border">
       <h2 class="text-lg font-semibold text-gray-800">Pilih durasi prediksi harga emas</h2>

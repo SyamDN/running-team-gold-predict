@@ -15,10 +15,12 @@ const props = defineProps({
 const chartRef = ref(null)
 let chartInstance = null // Variabel untuk menyimpan instance chart
 
+const BACKEND_URL = import.meta.env.VITE_API_URL
+
 // Fungsi untuk mengambil data dari API Flask
 const fetchData = async () => {
   try {
-    const response = await fetch('http://127.0.0.1:5000/prices') // Memanggil API Flask untuk mendapatkan data harga emas
+    const response = await fetch(`${BACKEND_URL}/prices`) // Memanggil API Flask untuk mendapatkan data harga emas
     const data = await response.json() // Mengubah response menjadi JSON
 
     // Validasi: Pastikan data yang diambil tidak kosong atau tidak valid
@@ -51,7 +53,7 @@ const processChartData = async (sortedData) => {
 
   // Membuat label tanggal untuk sumbu X pada grafik
   const labels = filteredData.map((item) =>
-    new Intl.DateTimeFormat('id-ID', { month: 'short', year: '2-digit' }).format(item.date)
+    new Intl.DateTimeFormat('id-ID', { month: 'short', year: '2-digit' }).format(item.date),
   )
 
   // Mengambil harga emas untuk setiap tanggal
