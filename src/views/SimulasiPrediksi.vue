@@ -180,6 +180,79 @@ const estimatedDifference = computed(() => {
     </div>
   </div>
 
+    <!-- Prediction per hari Box -->
+  <div class="max-w-5xl mx-auto p-4 sm:p-6 font-poppins">
+    <div class="bg-white shadow-md rounded-lg p-4 sm:p-6 border">
+      <h2 class="text-lg font-semibold text-gray-800">Pilih durasi prediksi harga emas</h2>
+      <p class="text-gray-500 text-sm mt-1">
+        Lihat proyeksi harga emas untuk beberapa hari ke depan.
+      </p>
+
+      <div class="grid grid-cols-2 sm:flex sm:space-x-2 mt-4 gap-2">
+        <button
+          v-for="(label, index) in ['6 Hari', '12 Hari', '18 Hari', '24 Hari']"
+          :key="index"
+          @click="selectedButtons = label"
+          :class="
+            selectedButtons === label ? 'bg-[#4AA49C] text-white' : 'bg-gray-200 text-gray-700'
+          "
+          class="px-4 py-2 border rounded-lg flex-1"
+        >
+          {{ label }}
+        </button>
+      </div>
+
+      <!-- Prediction Results -->
+      <div
+        class="flex flex-col sm:flex-row justify-between mt-6 space-y-4 sm:space-y-0 sm:space-x-10"
+      >
+        <div class="border-b border-gray-300 pb-2 w-full">
+          <p class="text-gray-500 text-sm">Estimasi investasi setelah {{ selectedButtons }}</p>
+          <p class="text-xl font-bold">{{ estimatedPrice }}</p>
+        </div>
+        <div class="border-b border-gray-300 pb-2 w-full">
+          <p class="text-gray-500 text-sm">Perkiraan selisih dari hari ini</p>
+          <p
+            :class="
+              estimatedDifference?.isPositive
+                ? 'text-green-600 font-semibold'
+                : 'text-red-600 font-semibold'
+            "
+          >
+            {{ estimatedDifference?.isPositive ? '▲' : '▼' }} {{ estimatedDifference?.value }}
+            <span
+              class="text-base"
+              :class="estimatedDifference?.isPositive ? 'text-green-600' : 'text-red-500'"
+            >
+              ({{ estimatedDifference?.percentage }}%)
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warning Box -->
+  <div class="max-w-5xl mx-auto p-4 sm:p-6">
+    <div class="flex items-center p-4 rounded-lg bg-yellow-50 text-yellow-700">
+      <svg
+        class="w-5 h-5 mr-2 text-yellow-500"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+        />
+      </svg>
+      <span>Prediksi ini hanya sebagai referensi dan bukan dasar utama transaksi.</span>
+    </div>
+  </div>
+
   <!-- Footer -->
   <FooterApp />
 </template>
