@@ -13,10 +13,12 @@ const articles = ref([]) // Menyimpan daftar artikel
 const produkSection = ref(null) // Referensi ke bagian produk
 const artikelSection = ref(null) // Referensi ke bagian artikel
 
+const BACKEND_URL = import.meta.env.VITE_API_URL;
+  
 // Mengambil data artikel dari API
 const getArticles = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:5000/articles')
+    const response = await axios.get(`${BACKEND_URL}/articles`)
     articles.value = response.data
     console.log('Data Articles:', articles.value)
   } catch (error) {
