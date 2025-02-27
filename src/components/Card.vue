@@ -1,4 +1,8 @@
 <script setup>
+/**
+ * Komponen kartu artikel yang menerima properti (props) `article`
+ * Properti ini harus berupa objek dan bersifat wajib (`required: true`)
+ */
 defineProps({
   article: {
     type: Object,
@@ -8,18 +12,23 @@ defineProps({
 </script>
 
 <template>
-  <div class="container ">
+  <div class="container">
     <div class="rounded-t-lg">
       <!-- Kartu Artikel -->
-      <div class="bg-transparent max-w-sm mx-auto  rounded-t-lg">
-        <!-- Gambar -->
+      <div class="bg-transparent max-w-sm mx-auto rounded-t-lg">
+        <!-- Gambar Artikel -->
         <div class="w-full h-40 sm:h-50 overflow-hidden rounded-t-lg">
           <img :src="article.image" alt="Artikel" class="w-full h-full object-cover" />
         </div>
 
         <!-- Konten Artikel -->
         <div class="p-4 text-left">
-          <h3 class="text-lg font-bold text-gray-800 break-words">{{ article.title.length > 20 ? article.title.slice(0, 20) + '...' : article.title }}</h3>
+          <!-- Judul Artikel (dipotong jika lebih dari 20 karakter) -->
+          <h3 class="text-lg font-bold text-gray-800 break-words">
+            {{ article.title.length > 20 ? article.title.slice(0, 20) + '...' : article.title }}
+          </h3>
+
+          <!-- Deskripsi Artikel (dipotong jika lebih dari 100 karakter) -->
           <p class="text-gray-700 mt-2 text-sm sm:text-base whitespace-normal break-words">
             {{
               article.description.length > 100
@@ -28,7 +37,7 @@ defineProps({
             }}
           </p>
 
-          <!-- Link Info Selengkapnya -->
+          <!-- Link ke halaman detail artikel dengan parameter ID -->
           <RouterLink
             :to="'/artikel/' + article.id"
             class="text-[#4AA49C] font-semibold inline-block mt-10 text-sm hover:underline"
