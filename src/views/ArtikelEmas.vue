@@ -5,12 +5,12 @@ import { useRouter, useRoute } from 'vue-router'
 import Navbar from '../components/Navbar.vue'
 
 const articlesDetails = ref(null)
-const router = useRouter() 
-const route = useRoute() 
+const router = useRouter()
+const route = useRoute()
 
 const getArticlesDetails = async () => {
   try {
-    const id = route.params.id 
+    const id = route.params.id
     const response = await axios.get(`http://localhost:5000/articles/${id}`)
     articlesDetails.value = response.data
     console.log('Data Articles:', articlesDetails.value)
@@ -31,7 +31,7 @@ onMounted(() => {
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <button
       @click="router.back()"
-      class="flex items-center text-gray-700 text-sm font-medium font-poppins bg-white transition-colors duration-300 px-4 py-3 md:px-60 md:py-5"
+      class="flex items-center text-gray-700 text-sm font-medium font-poppins bg-white transition-colors duration-300 px-0 sm:4 md:4 lg:0 py-4 sm:py-10 md:py-10 lg:py-10"
     >
       <svg
         class="w-5 h-5 mr-2"
@@ -48,7 +48,10 @@ onMounted(() => {
   </div>
 
   <!-- Pastikan data sudah tersedia sebelum dirender -->
-  <div v-if="articlesDetails" class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center font-poppins">
+  <div
+    v-if="articlesDetails"
+    class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center font-poppins"
+  >
     <h1 class="text-gray-900 text-2xl sm:text-3xl lg:text-xl font-medium">
       {{ articlesDetails.title }}
     </h1>

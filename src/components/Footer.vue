@@ -196,3 +196,4 @@ const closeModal = () => {
   border-radius: 10px;
 }
 </style>
+mplate>
