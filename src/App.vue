@@ -6,5 +6,6 @@
 <template>
   <div id="app">
     <router-view />
+    <!-- Menampilkan komponen sesuai rute aktif -->
   </div>
 </template>

@@ -1,17 +1,19 @@
+```vue
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-import Navbar from '../components/Navbar.vue'
-import HeroHero from '../components/HeroHero.vue'
-import Card from '../components/Card.vue'
-import CardProduct from '../components/CardProduct.vue'
-import Footer from '../components/Footer.vue'
-import GoldPriceChart from '@/components/GoldPriceChart.vue'
+import { ref, onMounted } from 'vue' // Mengimpor ref dan onMounted dari Vue
+import axios from 'axios' // Mengimpor axios untuk HTTP request
+import Navbar from '../components/Navbar.vue' // Mengimpor komponen Navbar
+import HeroHero from '../components/HeroHero.vue' // Mengimpor komponen Hero
+import Card from '../components/Card.vue' // Mengimpor komponen Card untuk artikel
+import CardProduct from '../components/CardProduct.vue' // Mengimpor komponen CardProduct
+import Footer from '../components/Footer.vue' // Mengimpor komponen Footer
+import GoldPriceChart from '@/components/GoldPriceChart.vue' // Mengimpor komponen grafik harga emas
 
-const articles = ref([])
-const produkSection = ref(null)
-const artikelSection = ref(null) // Reference to Artikel section
+const articles = ref([]) // Menyimpan daftar artikel
+const produkSection = ref(null) // Referensi ke bagian produk
+const artikelSection = ref(null) // Referensi ke bagian artikel
 
+// Mengambil data artikel dari API
 const getArticles = async () => {
   try {
     const response = await axios.get('http://127.0.0.1:5000/articles')
@@ -22,24 +24,28 @@ const getArticles = async () => {
   }
 }
 
+// Fungsi untuk scroll ke bagian produk
 const scrollToProduk = () => {
   produkSection.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
+// Fungsi untuk scroll ke bagian artikel
 const scrollToArtikel = () => {
   artikelSection.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
-console.log(articles)
 onMounted(() => {
-  getArticles()
+  getArticles() // Memanggil fungsi saat komponen ter-mount
 })
 </script>
 
 <template>
   <div class="bg-gradient-to-b from-[#E6FAF9] to-white">
+    <!-- Navbar dengan event untuk scroll ke bagian tertentu -->
     <Navbar @scrollToProduk="scrollToProduk" @scrollToArtikel="scrollToArtikel" />
-    <HeroHero/>
+    <HeroHero />
+
+    <!-- Bagian investasi emas -->
     <section ref="produkSection" class="bg-transparent text-white py-12 px-6 mb-8">
       <div class="max-w-4xl mx-auto text-center text-black">
         <h2 class="text-xl md:text-4xl font-bold">Cara Terbaik Berinvestasi Emas di BSI</h2>
@@ -64,6 +70,7 @@ onMounted(() => {
   </div>
 
   <div class="bg-gradient-to-b from-[#E6FAF9] to-white">
+    <!-- Bagian artikel -->
     <section ref="artikelSection" class="text-white py-12 px-6">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-xl md:text-4xl font-bold text-black">
@@ -82,3 +89,4 @@ onMounted(() => {
 
   <Footer />
 </template>
+```
