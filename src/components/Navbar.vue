@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isOpen = ref(false)
 const toggleMenu = () => {
@@ -7,29 +8,31 @@ const toggleMenu = () => {
 }
 
 const emit = defineEmits(['scrollToProduk', 'scrollToArtikel'])
+
+const route = useRoute()
+const isSimulasiPage = route.path === '/simulasi'
+const isHome = route.path === '/'
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 w-full bg-white border border-gray-200 p-4 z-50">
+  <nav class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 p-4 z-50">
     <div class="flex justify-between items-center max-w-7xl mx-auto px-8">
       <!-- Logo -->
-      <router-link to="/" class="text-green-600 text-lg font-bold flex items-center pl-0 sm:pl-30">
-        <img src="/logo.png" alt="Logo" class="w-24 h-8" />
+      <router-link to="/" class="flex items-center">
+        <img src="/logo.png" alt="Logo" class="w-24 h-8 md:w-40 md:h-12" />
       </router-link>
 
       <!-- Desktop Navigation -->
-      <div class="hidden sm:flex items-center gap-8 pr-30">
-        <router-link to="/" class="text-black hover:text-[#4AA49C]">Home</router-link>
-        <button @click="emit('scrollToProduk')" class="text-black hover:text-[#4AA49C]">
-          Produk Emas
-        </button>
-        <button @click="emit('scrollToArtikel')" class="text-black hover:text-[#4AA49C]">
-          Artikel
-        </button>
+      <div class="hidden sm:flex items-center gap-10">
         <router-link
+          v-if="!isSimulasiPage"
           to="/simulasi"
-          class="text-white hover:text-[#005850] bg-[#4AA49C] hover:bg-white outline-1 outline outline-[#4AA49C] px-4 py-2 rounded-md"
+          class="text-[#FFFFFF] font-bold bg-[#4AA49C] p-3 rounded-lg hover:bg-white hover:text-[#4AA49C] hover:outline-[#4AA49C] outline-1"
         >
+          Simulasi Prediksi
+        </router-link>
+
+        <router-link v-if="isSimulasiPage" to="/simulasi" class="text-[#4AA49C] font-bold">
           Simulasi Prediksi
         </router-link>
       </div>
@@ -50,12 +53,7 @@ const emit = defineEmits(['scrollToProduk', 'scrollToArtikel'])
 
     <!-- Mobile Navigation -->
     <div v-if="isOpen" class="sm:hidden mt-2 flex flex-col space-y-2 px-4">
-      <router-link to="/" class="text-black hover:text-green-600">Home</router-link>
-      <router-link to="/produk" class="text-black hover:text-green-600">Produk Emas</router-link>
-      <router-link to="/artikel" class="text-black hover:text-green-600">Artikel</router-link>
-      <router-link to="/simulasi" class="text-black hover:text-green-600"
-        >Simulasi Prediksi</router-link
-      >
+      <router-link to="/simulasi" class="text-[#4AA49C] font-bold">Simulasi Prediksi</router-link>
     </div>
   </nav>
 

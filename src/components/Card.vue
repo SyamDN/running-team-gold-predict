@@ -19,8 +19,8 @@ defineProps({
 
         <!-- Konten Artikel -->
         <div class="p-4 text-left">
-          <h3 class="text-lg font-bold text-white break-words">{{ article.title }}</h3>
-          <p class="text-gray-200 mt-2 text-sm sm:text-base whitespace-normal break-words">
+          <h3 class="text-lg font-bold text-gray-800 break-words">{{ article.title.length > 20 ? article.title.slice(0, 20) + '...' : article.title }}</h3>
+          <p class="text-gray-700 mt-2 text-sm sm:text-base whitespace-normal break-words">
             {{
               article.description.length > 100
                 ? article.description.slice(0, 100) + '...'
@@ -30,8 +30,8 @@ defineProps({
 
           <!-- Link Info Selengkapnya -->
           <RouterLink
-            to="/artikel"
-            class="text-yellow-100 font-semibold inline-block mt-10 text-sm hover:underline"
+            :to="'/artikel/' + article.id"
+            class="text-[#4AA49C] font-semibold inline-block mt-10 text-sm hover:underline"
           >
             Info Selengkapnya →
           </RouterLink>

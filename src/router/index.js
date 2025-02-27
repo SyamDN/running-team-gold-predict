@@ -7,13 +7,13 @@ const routes = [
     {
         path: '/', component: Home
     },
-
     {
-        path: '/artikel', component: ArtikelEmas
+        path: '/artikel/:id',
+        component: ArtikelEmas
     },
     {
         path: '/simulasi', component: SimulasiPrediksi
-    }
+    },
 ];
 
 const router = createRouter({

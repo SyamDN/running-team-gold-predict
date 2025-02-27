@@ -6,6 +6,7 @@ import HeroHero from '../components/HeroHero.vue'
 import Card from '../components/Card.vue'
 import CardProduct from '../components/CardProduct.vue'
 import Footer from '../components/Footer.vue'
+import GoldPriceChart from '@/components/GoldPriceChart.vue'
 
 const articles = ref([])
 const produkSection = ref(null)
@@ -38,11 +39,11 @@ onMounted(() => {
 <template>
   <div class="bg-gradient-to-b from-[#E6FAF9] to-white">
     <Navbar @scrollToProduk="scrollToProduk" @scrollToArtikel="scrollToArtikel" />
-    <HeroHero />
+    <HeroHero/>
     <section ref="produkSection" class="bg-transparent text-white py-12 px-6 mb-8">
       <div class="max-w-4xl mx-auto text-center text-black">
-        <h2 class="text-3xl font-bold">Cara Terbaik Berinvestasi Emas di BSI</h2>
-        <p class="text-lg mt-4">
+        <h2 class="text-xl md:text-4xl font-bold">Cara Terbaik Berinvestasi Emas di BSI</h2>
+        <p class="mt-4 text-gray-700 text-base max-w-5xl mx-auto leading-relaxed md:text-lg">
           Temukan berbagai solusi investasi emas yang aman, mudah, dan terencana. Mulai dari cicilan
           ringan, gadai emas cepat cair, hingga investasi emas digital yang praktis di genggaman.
         </p>
@@ -65,10 +66,10 @@ onMounted(() => {
   <div class="bg-gradient-to-b from-[#E6FAF9] to-white">
     <section ref="artikelSection" class="text-white py-12 px-6">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-black">
+        <h2 class="text-xl md:text-4xl font-bold text-black">
           Tetap Terdepan dengan Berita dan Tren Terbaru Seputar Emas
         </h2>
-        <p class="text-lg mt-4 text-black">
+        <p class="mt-4 text-gray-700 text-base max-w-5xl mx-auto leading-relaxed md:text-lg">
           Dapatkan informasi terkini tentang harga emas, peluang investasi, dan tren pasar. Jadilah
           yang pertama tahu dan rencanakan investasi emas Anda dengan lebih cerdas.
         </p>
