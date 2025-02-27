@@ -19,11 +19,11 @@ const emit = defineEmits(['scrollToProduk', 'scrollToArtikel'])
 
       <!-- Desktop Navigation -->
       <div class="hidden sm:flex items-center gap-8 pr-30">
-        <router-link to="/" class="text-black hover:text-green-600">Home</router-link>
-        <button @click="emit('scrollToProduk')" class="text-black hover:text-green-600">
+        <router-link to="/" class="text-black hover:text-[#4AA49C]">Home</router-link>
+        <button @click="emit('scrollToProduk')" class="text-black hover:text-[#4AA49C]">
           Produk Emas
         </button>
-        <button @click="emit('scrollToArtikel')" class="text-black hover:text-green-600">
+        <button @click="emit('scrollToArtikel')" class="text-black hover:text-[#4AA49C]">
           Artikel
         </button>
         <router-link
