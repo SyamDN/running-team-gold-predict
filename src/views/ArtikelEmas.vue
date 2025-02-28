@@ -52,7 +52,7 @@ onMounted(() => {
 
   <!-- Menampilkan detail artikel jika tersedia -->
   <div v-if="articlesDetails" class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center font-poppins">
-    <h1 class="text-gray-900 text-2xl sm:text-3xl lg:text-xl font-medium">
+    <h1 class="text-gray-900 text-2xl sm:text-3xl lg:text-xl font-bold">
       {{ articlesDetails.title }}
     </h1>
 
