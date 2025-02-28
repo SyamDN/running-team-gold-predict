@@ -195,6 +195,10 @@ const estimatedDifference = computed(() => {
               {{ isPositive ? '▲' : '▼' }} {{ formatCurrency(priceDifference) }}
             </p>
           </div>
+          <div>
+            <p class="text-gray-500">Perubahan Terakhir</p>
+            <p class="font-semibold text-lg">{{ latestData ? latestData.date : 'Memuat...' }}</p>
+          </div>
         </div>
       </div>
     </div>
